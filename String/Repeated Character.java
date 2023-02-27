@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+class GFG
+{
+    public static void main(String args[])throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        String s;
+        s = sc.next();
+        
+        Solution ob = new Solution();
+        char res = ob.firstRep(s);
+        if (res == '#')
+            System.out.println(-1);
+        else
+            System.out.println(res);
+    }
+}
+
+class Solution
+{
+    char firstRep(String S)
+    {
+        // your code here
+        for(int i=0; i<S.length()-1; i++){
+            for(int j=i+1; j<S.length(); j++){
+                if(S.charAt(i) == S.charAt(j))
+                   return S.charAt(i);
+            }
+        }
+        return '#';
+    }
+}
